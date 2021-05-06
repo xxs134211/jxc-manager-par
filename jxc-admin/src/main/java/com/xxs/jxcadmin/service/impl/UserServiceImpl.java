@@ -45,8 +45,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     @Override
     @Transactional(propagation = Propagation.REQUIRED,rollbackFor = Exception.class)
     public void updateUserInfo(User user) {
-        AssertUtil.isTrue(StringUtil.isEmpty(user.getUserName()),"用户名不能为空！");
-        User temp = this.findUserByUsername(user.getUserName());
+        AssertUtil.isTrue(StringUtil.isEmpty(user.getUsername()),"用户名不能为空！");
+        User temp = this.findUserByUsername(user.getUsername());
         AssertUtil.isTrue(null != temp && !(temp.getId().equals(user.getId())),"用户名已存在！");
         AssertUtil.isTrue(!(this.updateById(user)),"用户信息更新失败！");
     }

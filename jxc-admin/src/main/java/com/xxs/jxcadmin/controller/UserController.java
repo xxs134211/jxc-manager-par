@@ -28,14 +28,14 @@ public class UserController {
 
     @Resource
     private IUserService userService;
-
-    @RequestMapping("login")
-    @ResponseBody
-    public RespBean login(String userName, String password, HttpSession session){
-            User user = userService.login(userName,password);
-            session.setAttribute("user",user);
-            return RespBean.success("用户登录成功！");
-    }
+// 代码弃用，利用springsecurity去做登录验证和网页访问权限管理
+//    @RequestMapping("login")
+//    @ResponseBody
+//    public RespBean login(String userName, String password, HttpSession session){
+//            User user = userService.login(userName,password);
+//            session.setAttribute("user",user);
+//            return RespBean.success("用户登录成功！");
+//    }
 
     @RequestMapping("setting")
     public String setting(HttpSession session){
@@ -60,7 +60,7 @@ public class UserController {
     @ResponseBody
     public RespBean updateUserPassword(HttpSession session, String oldPassword, String newPassword, String confirmPassword){
             User user = (User) session.getAttribute("user");
-            userService.updateUserPassword(user.getUserName(),oldPassword,newPassword,confirmPassword);
+            userService.updateUserPassword(user.getUsername(),oldPassword,newPassword,confirmPassword);
             return RespBean.success("用户密码更新成功");
     }
 }
