@@ -13,13 +13,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IUserService extends IService<User> {
 
-    /**
-     * 登录注册
-     * @param userName 用户名
-     * @param password 密码
-     * @return 登录是否成功
-     */
-    User login(String userName, String password);
 
     public User findUserByUsername(String userName);
 
