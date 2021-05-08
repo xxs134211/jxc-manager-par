@@ -1,16 +1,20 @@
 package com.xxs.jxcadmin.config.security;
 
+import com.xxs.jxcadmin.config.ClassPathTldsLoader;
 import com.xxs.jxcadmin.filters.CaptchaCodeFilter;
 import com.xxs.jxcadmin.pojo.User;
+import com.xxs.jxcadmin.service.IRbacService;
 import com.xxs.jxcadmin.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringBootConfiguration;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -22,6 +26,8 @@ import org.springframework.security.web.authentication.rememberme.PersistentToke
 
 import javax.annotation.Resource;
 import javax.sql.DataSource;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author 13421
@@ -41,6 +47,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private CaptchaCodeFilter captchaCodeFilter;
     @Resource
     private DataSource dataSource;
+    @Resource
+    private IRbacService rbacService;
     @Override
     public void configure(WebSecurity web) throws Exception {
         web.ignoring().antMatchers("/css/**","/error/**","/images/**","/js/**","/lib/**");
@@ -84,11 +92,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     @Bean
     public UserDetailsService userDetailsService(){
-        return new UserDetailsService() {
-            @Override
-            public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-                return userService.findUserByUsername(username);
-            }
+        return username -> {
+            User userDetails = userService.findUserByUsername(username);
+
+            List<String> roleNames = rbacService.findRolesByUserName(username);
+            List<String> authorities = rbacService.findAuthoritiesByRoleName(roleNames);
+            roleNames = roleNames.stream().map(role-> "ROLE_"+role).collect(Collectors.toList());
+            authorities.addAll(roleNames);
+            System.out.println(authorities);
+            userDetails.setAuthorities(AuthorityUtils.commaSeparatedStringToAuthorityList(String.join(",",authorities)));
+            return userDetails;
         };
     }
     @Bean
@@ -99,5 +112,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService()).passwordEncoder(encoder());
+    }
+
+    @Bean
+    @ConditionalOnMissingBean(ClassPathTldsLoader.class)
+    public ClassPathTldsLoader classPathTldsLoader(){
+        return new ClassPathTldsLoader();
     }
 }
