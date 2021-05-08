@@ -2,6 +2,9 @@ package com.xxs.jxcadmin.service;
 
 import com.xxs.jxcadmin.pojo.User;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.xxs.jxcadmin.query.UserQuery;
+
+import java.util.Map;
 
 /**
  * <p>
@@ -19,4 +22,12 @@ public interface IUserService extends IService<User> {
     public void updateUserInfo(User user);
 
     void updateUserPassword(String userName, String oldPassword, String newPassword, String confirmPassword);
+
+    Map<String, Object> userList(UserQuery userQuery);
+
+    void saveUser(User user);
+
+    void updateUser(User user);
+
+    void deleteUser(Integer[] ids);
 }
