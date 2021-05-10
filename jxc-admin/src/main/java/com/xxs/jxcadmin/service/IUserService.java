@@ -2,6 +2,9 @@ package com.xxs.jxcadmin.service;
 
 import com.xxs.jxcadmin.pojo.User;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.xxs.jxcadmin.query.UserQuery;
+
+import java.util.Map;
 
 /**
  * <p>
@@ -13,17 +16,18 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IUserService extends IService<User> {
 
-    /**
-     * 登录注册
-     * @param userName 用户名
-     * @param password 密码
-     * @return 登录是否成功
-     */
-    User login(String userName, String password);
 
     public User findUserByUsername(String userName);
 
     public void updateUserInfo(User user);
 
     void updateUserPassword(String userName, String oldPassword, String newPassword, String confirmPassword);
+
+    Map<String, Object> userList(UserQuery userQuery);
+
+    void saveUser(User user);
+
+    void updateUser(User user);
+
+    void deleteUser(Integer[] ids);
 }

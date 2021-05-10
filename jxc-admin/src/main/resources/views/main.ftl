@@ -22,7 +22,7 @@
                 <a href="javascript:" data-check-screen="full"><i class="fa fa-arrows-alt"></i></a>
             </li>
             <li class="layui-nav-item layuimini-setting">
-                <a href="javascript:">${(user.userName)!}</a>
+                <a href="javascript:">${(Session.SPRING_SECURITY_CONTEXT.authentication.principal.username)!}</a>
                 <dl class="layui-nav-child">
                     <dd>
                         <a href="javascript:" data-iframe-tab="${ctx.contextPath}/user/setting" data-title="基本资料" data-icon="fa fa-gears">基本资料</a>
@@ -55,39 +55,39 @@
                                 <a href="javascript:" class="layui-menu-tips" data-type="tabAdd" data-tab-mpi="m-p-i-12" data-tab="return/index" target="_self"><i class="fa fa-tachometer"></i><span class="layui-left-nav"> 退货出库</span></a>
                             </dd>
                             <dd class="">
-                                <a href="javascript:;" class="layui-menu-tips" data-type="tabAdd" data-tab-mpi="m-p-i-13" data-tab="purchase/searchPage" target="_self"><i class="fa fa-tachometer"></i><span class="layui-left-nav"> 进货单据查询</span></a>
+                                <a href="javascript:" class="layui-menu-tips" data-type="tabAdd" data-tab-mpi="m-p-i-13" data-tab="purchase/searchPage" target="_self"><i class="fa fa-tachometer"></i><span class="layui-left-nav"> 进货单据查询</span></a>
                             </dd>
                             <dd class="">
-                                <a href="javascript:;" class="layui-menu-tips" data-type="tabAdd" data-tab-mpi="m-p-i-13" data-tab="return/searchPage" target="_self"><i class="fa fa-tachometer"></i><span class="layui-left-nav"> 退货单据查询</span></a>
+                                <a href="javascript:" class="layui-menu-tips" data-type="tabAdd" data-tab-mpi="m-p-i-13" data-tab="return/searchPage" target="_self"><i class="fa fa-tachometer"></i><span class="layui-left-nav"> 退货单据查询</span></a>
                             </dd>
                             <dd class="">
-                                <a href="javascript:;" class="layui-menu-tips" data-type="tabAdd" data-tab-mpi="m-p-i-13" data-tab="common/toGoodsStockPage" target="_self"><i class="fa fa-tachometer"></i><span class="layui-left-nav"> 当前库存查询</span></a>
+                                <a href="javascript:" class="layui-menu-tips" data-type="tabAdd" data-tab-mpi="m-p-i-13" data-tab="common/toGoodsStockPage" target="_self"><i class="fa fa-tachometer"></i><span class="layui-left-nav"> 当前库存查询</span></a>
                             </dd>
                         </dl>
                     </li>
                     <li class="layui-nav-item">
-                        <a href="javascript:;" class="layui-menu-tips"><i class="fa fa-gears"></i><span class="layui-left-nav"> 销售管理</span> <span class="layui-nav-more"></span></a>
+                        <a href="javascript:" class="layui-menu-tips"><i class="fa fa-gears"></i><span class="layui-left-nav"> 销售管理</span> <span class="layui-nav-more"></span></a>
                         <dl class="layui-nav-child">
                             <dd>
-                                <a href="javascript:;" class="layui-menu-tips" data-type="tabAdd" data-tab-mpi="m-p-i-11" data-tab="sale/index" target="_self"><i class="fa fa-user"></i><span class="layui-left-nav"> 销售出库</span></a>
+                                <a href="javascript:" class="layui-menu-tips" data-type="tabAdd" data-tab-mpi="m-p-i-11" data-tab="sale/index" target="_self"><i class="fa fa-user"></i><span class="layui-left-nav"> 销售出库</span></a>
                             </dd>
 
                             <dd class="">
-                                <a href="javascript:;" class="layui-menu-tips" data-type="tabAdd" data-tab-mpi="m-p-i-12" data-tab="customerReturn/index" target="_self"><i class="fa fa-tachometer"></i><span class="layui-left-nav"> 客户退货</span></a>
+                                <a href="javascript:" class="layui-menu-tips" data-type="tabAdd" data-tab-mpi="m-p-i-12" data-tab="customerReturn/index" target="_self"><i class="fa fa-tachometer"></i><span class="layui-left-nav"> 客户退货</span></a>
                             </dd>
                             <dd class="">
-                                <a href="javascript:;" class="layui-menu-tips" data-type="tabAdd" data-tab-mpi="m-p-i-13" data-tab="sale/searchPage" target="_self"><i class="fa fa-tachometer"></i><span class="layui-left-nav"> 销售单据查询</span></a>
+                                <a href="javascript:" class="layui-menu-tips" data-type="tabAdd" data-tab-mpi="m-p-i-13" data-tab="sale/searchPage" target="_self"><i class="fa fa-tachometer"></i><span class="layui-left-nav"> 销售单据查询</span></a>
                             </dd>
                             <dd class="">
-                                <a href="javascript:;" class="layui-menu-tips" data-type="tabAdd" data-tab-mpi="m-p-i-13" data-tab="customerReturn/searchPage" target="_self"><i class="fa fa-tachometer"></i><span class="layui-left-nav"> 客户退货查询</span></a>
+                                <a href="javascript:" class="layui-menu-tips" data-type="tabAdd" data-tab-mpi="m-p-i-13" data-tab="customerReturn/searchPage" target="_self"><i class="fa fa-tachometer"></i><span class="layui-left-nav"> 客户退货查询</span></a>
                             </dd>
                             <dd class="">
-                                <a href="javascript:;" class="layui-menu-tips" data-type="tabAdd" data-tab-mpi="m-p-i-13" data-tab="common/toGoodsStockPage" target="_self"><i class="fa fa-tachometer"></i><span class="layui-left-nav"> 当前库存查询</span></a>
+                                <a href="javascript:" class="layui-menu-tips" data-type="tabAdd" data-tab-mpi="m-p-i-13" data-tab="common/toGoodsStockPage" target="_self"><i class="fa fa-tachometer"></i><span class="layui-left-nav"> 当前库存查询</span></a>
                             </dd>
                         </dl>
                     </li>
                     <li class="layui-nav-item">
-                        <a href="javascript:;" class="layui-menu-tips"><i class="fa fa-gears"></i><span class="layui-left-nav"> 库存管理</span> <span class="layui-nav-more"></span></a>
+                        <a href="javascript:" class="layui-menu-tips"><i class="fa fa-gears"></i><span class="layui-left-nav"> 库存管理</span> <span class="layui-nav-more"></span></a>
                         <dl class="layui-nav-child">
                             <dd>
                                 <a href="javascript:;" class="layui-menu-tips" data-type="tabAdd" data-tab-mpi="m-p-i-11" data-tab="damage/index" target="_self"><i class="fa fa-user"></i><span class="layui-left-nav"> 商品报损</span></a>
@@ -150,21 +150,29 @@
                             </dd>
                         </dl>
                     </li>
-                    <li class="layui-nav-item">
-                    <a href="javascript:;" class="layui-menu-tips"><i class="fa fa-gears"></i><span class="layui-left-nav"> 系统设置</span> <span class="layui-nav-more"></span></a>
-                    <dl class="layui-nav-child">
-                            <dd>
-                                <a href="javascript:;" class="layui-menu-tips" data-type="tabAdd" data-tab-mpi="m-p-i-11" data-tab="user/index" target="_self"><i class="fa fa-user"></i><span class="layui-left-nav"> 用户管理</span></a>
-                            </dd>
+                    <@security.authorize access="hasAnyAuthority('10')">
+                        <li class="layui-nav-item">
+                            <a href="javascript:" class="layui-menu-tips"><i class="fa fa-gears"></i><span class="layui-left-nav"> 系统设置</span> <span class="layui-nav-more"></span></a>
+                            <dl class="layui-nav-child">
+                                <@security.authorize access="hasAnyAuthority('1010')">
+                                    <dd>
+                                        <a href="javascript:" class="layui-menu-tips" data-type="tabAdd" data-tab-mpi="m-p-i-11" data-tab="user/index" target="_self"><i class="fa fa-user"></i><span class="layui-left-nav"> 用户管理</span></a>
+                                    </dd>
+                                </@security.authorize>
+                                <@security.authorize access="hasAnyAuthority('1020')">
+                                    <dd class="">
+                                        <a href="javascript:" class="layui-menu-tips" data-type="tabAdd" data-tab-mpi="m-p-i-12" data-tab="role/index" target="_self"><i class="fa fa-tachometer"></i><span class="layui-left-nav"> 角色管理</span></a>
+                                    </dd>
+                                </@security.authorize>
+                                <@security.authorize access="hasAnyAuthority('1030')">
+                                    <dd class="">
+                                        <a href="javascript:" class="layui-menu-tips" data-type="tabAdd" data-tab-mpi="m-p-i-13" data-tab="menu/index" target="_self"><i class="fa fa-tachometer"></i><span class="layui-left-nav"> 菜单管理</span></a>
+                                    </dd>
+                                </@security.authorize>
+                            </dl>
+                        </li>
+                    </@security.authorize>
 
-                            <dd class="">
-                                <a href="javascript:;" class="layui-menu-tips" data-type="tabAdd" data-tab-mpi="m-p-i-12" data-tab="role/index" target="_self"><i class="fa fa-tachometer"></i><span class="layui-left-nav"> 角色管理</span></a>
-                            </dd>
-                            <dd class="">
-                                <a href="javascript:;" class="layui-menu-tips" data-type="tabAdd" data-tab-mpi="m-p-i-13" data-tab="menu/index" target="_self"><i class="fa fa-tachometer"></i><span class="layui-left-nav"> 菜单管理</span></a>
-                            </dd>
-                    </dl>
-                </li>
 
                     <span class="layui-nav-bar" style="top: 201px; height: 0px; opacity: 0;"></span>
                 </ul>
