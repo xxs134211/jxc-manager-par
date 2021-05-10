@@ -33,7 +33,7 @@
 			</@security.authorize>
 			<@security.authorize access="hasAnyAuthority('101006')">
 				<a class="layui-btn layui-btn-normal delNews_btn" lay-event="del">
-					<i class="layui-icon">&#xe608;</i>
+					<i class="layui-icon">&#xe640;</i>
 					删除用户
 				</a>
 			</@security.authorize>

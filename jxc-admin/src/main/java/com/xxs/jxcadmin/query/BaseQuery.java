@@ -8,6 +8,6 @@ import lombok.Data;
 @Data
 public class BaseQuery {
 
-    private final Integer page = 1;
-    private final Integer limit = 10;
+    private  Integer page;
+    private  Integer limit;
 }
